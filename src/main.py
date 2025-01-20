@@ -141,6 +141,7 @@ scroll_y.pack(side=RIGHT, fill=Y)
 scroll_y.config(command=text_area.yview)
 text_area.pack(fill=BOTH, expand=1)
 
+#printing the bill format
 welcome()
 
 
