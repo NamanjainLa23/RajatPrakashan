@@ -7,6 +7,7 @@ l = []
 
 # Function to get the next bill number
 def get_next_bill_number():
+    #if last bill is empty then do not update bill number
     filename = "bill_number.txt"
     if os.path.exists(filename):
         with open(filename, "r") as file:
@@ -15,9 +16,6 @@ def get_next_bill_number():
         last_bill = 0  # Start from 1 if file doesn't exist
 
     new_bill = last_bill + 1
-    with open(filename, "w") as file:
-        file.write(str(new_bill))
-    
     return str(new_bill)
 
 root=Tk()
@@ -55,15 +53,23 @@ def add_item():
         text_area.insert(END,f"{item.get()}\t\t\t{qty.get()}\t{rate.get()}\t{total}\n")
     l.append(total)
 
+def savebill():
+    pass
+
 def generate_bill():
-    tex = text_area.get(10.0,(10.0+float(len(l))))
+    tex = text_area.get(11.0,(11.0+float(len(l))))
     welcome()
     text_area.insert(END,tex)
     text_area.insert(END,f"\n====================================================")
     text_area.insert(END,f"\nTotal Bill Amount: \t\t\t{sum(l)}")
     text_area.insert(END,f"\n====================================================")
+    savebill()
 
+def clear():
+    pass
 
+def exit():
+    pass
 
 title = Label(root,text="Billing Software",font=("times new roman",40,"bold"),bg=bg_color,fg='white', relief=GROOVE)
 title.pack(fill=X)
