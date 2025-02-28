@@ -54,6 +54,7 @@ def add_item():
     l.append(total)
 
 def savebill():
+    #save the bill
     pass
 
 def generate_bill():
